@@ -1,0 +1,81 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    int[] a = {2, 4, 7, 13, 14, 15, 16};
+      
+    int[] b = {1, 6, 7, 11, 13, 16, 18};
+
+    int[] uniao = uniao(a, b);
+      
+    int[] inter = inter(a, b);
+      
+    int[] diferenca = diferenca(a, b);
+
+    System.out.println("Uniao => " + Arrays.toString(uniao));
+      
+    System.out.println("Intersecçao => " + Arrays.toString(inter));
+      
+    System.out.println("Diferença => " + Arrays.toString(diferenca));
+  }
+
+  private static int[] uniao(int[] a, int[] b){
+    int[] uniao = new int[a.length + b.length];
+    int k = 0;
+
+    for (int i = 0; i < a.length; i++){
+      uniao[k++] = a[i];
+    }
+
+    for (int i = 0; i < a.length; i++){
+      uniao[k++] = b[i];
+    }
+
+    return uniao;
+  }
+
+  private static int[] inter(int[] a, int[] b){
+    int[] aux = new int[a.length + b.length];
+    int k = 0;
+
+    for (int i = 0; i < a.length; i++){
+      for (int j = 0; j < b.length; j++){
+        if(a[i] == b[j]){
+          aux[k++] = a[i];
+        }
+      }
+    }
+
+    int [] inter = new int[k];
+
+    for (int i = 0; i < k; i++){
+      inter[i] = aux[i];
+    }
+
+
+    return inter;
+  }
+
+  private static int[] diferenca(int[] a, int[] b){
+    int[] aux = new int[a.length + b.length];
+    int k = 0;
+
+    for (int i = 0; i < a.length; i++){
+      for (int j = 0; j < b.length; j++){
+        if(a[i] == b[j]){
+          aux[k++] = a[i];
+        }
+      }
+    }
+
+    int [] diferenca = new int[k];
+
+    for (int i = 0; i < k; i++){
+      diferenca[i] = aux[i];
+    }
+
+
+    return diferenca;
+  }
+
+}
